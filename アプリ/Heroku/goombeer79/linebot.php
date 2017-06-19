@@ -183,16 +183,16 @@
       return $count;
     }
 
-//関数実行
-$count =countcheck($userID);
-sending_messages($accessToken, $replyToken, $message_type,$count);
-$count =countcheck($userID);
-if($count >= 5){
-  exit;
-} elseif ($count < 5) {
-  database_save($message_text,$userID,$count,$count);
-  $count =countcheck($userID);
-  push_messages($accessToken, $message_type,$userID,$count);
-}
+    //関数実行
+    $count =countcheck($userID);
+    sending_messages($accessToken, $replyToken, $message_type,$count);
+    $count =countcheck($userID);
+    if($count >= 5){
+      exit;
+    } elseif ($count < 5) {
+      database_save($message_text,$userID,$count,$count);
+      $count =countcheck($userID);
+      push_messages($accessToken, $message_type,$userID,$count);
+    }
 
 ?>
